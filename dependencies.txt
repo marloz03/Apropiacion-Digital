@@ -12,3 +12,6 @@ matplotlib==3.7.2
 seaborn==0.12.2
 requests==2.31.0
 pillow==10.0.1
+prince==0.10.0
+scipy==1.11.4
+statsmodels==0.14.0
