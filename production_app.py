@@ -239,7 +239,7 @@ def main():
             clustered_data['B4_1_Usa_internet_movil']).clip(0, 1).mean() * 100
         
         avg_digital_pyramid = clustered_data['nivel_piramide'].astype('float').mean()
-        digital_gap = 100 - internet_users
+        digital_gap = 14.4 - internet_users
         
         col1, col2, col3, col4 = st.columns(4)
 
@@ -265,7 +265,7 @@ def main():
             st.metric(
                 label="💻 Acceso Banda Ancha", 
                 value=f"{banda_ancha:.1f}%",
-                delta=f"Meta 50%: {banda_ancha - 50:.1f}%",
+                delta=f"Meta 30%: {banda_ancha - 50:.1f}%",
                 delta_color="normal" if banda_ancha >= 50 else "inverse"
             )
 
