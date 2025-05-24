@@ -53,7 +53,7 @@ ssh -i tu-clave.pem ubuntu@tu-ip-ec2
 2. **Clonar el repositorio**
 ```bash
 git clone <url-del-repositorio>
-cd monitor-inclusion-digital
+cd Apropiacion-Digital
 ```
 
 3. **Configurar clave de OpenAI (opcional)**
@@ -70,80 +70,6 @@ chmod +x deploy_aws.sh
 5. **Acceder a la aplicación**
 ```
 http://tu-ip-ec2:5000
-```
-
-### Instalación en Windows
-
-1. **Instalar Docker Desktop**
-   - Descargar desde: https://www.docker.com/products/docker-desktop
-   - Seguir wizard de instalación
-   - Reiniciar el sistema si es necesario
-
-2. **Descargar el código**
-   - Descomprimir archivos en una carpeta (ej: `C:\monitor-inclusion`)
-
-3. **Ejecutar instalación**
-   - Abrir PowerShell como Administrador
-   - Navegar a la carpeta del proyecto
-   - Ejecutar: `.\deploy_windows.bat`
-
-4. **Acceder a la aplicación**
-```
-http://localhost:5000
-```
-
-### Instalación Manual con Docker
-
-Si prefieres control total sobre el proceso:
-
-```bash
-# Construir imagen
-docker build -t monitor-inclusion-digital .
-
-# Ejecutar contenedor
-docker run -d \
-  --name monitor-inclusion \
-  -p 5000:5000 \
-  --restart unless-stopped \
-  monitor-inclusion-digital
-
-# Ver logs
-docker logs monitor-inclusion
-
-# Detener aplicación
-docker stop monitor-inclusion
-```
-
-## 📁 Estructura del Proyecto
-
-```
-monitor-inclusion-digital/
-├── production_app.py          # Aplicación principal Streamlit
-├── famd_clustering.py         # Motor de clustering FAMD
-├── data_loader.py            # Gestión de datos y persistencia
-├── ai_insights.py            # Generación de insights con IA
-├── colombia_geo_simple.py    # Visualización geográfica
-├── data/                     # Datos y resultados almacenados
-│   └── clustering_results_default.pkl
-├── models/                   # Modelos entrenados
-├── Dockerfile               # Configuración Docker
-├── dependencies.txt         # Dependencias Python
-├── deploy_aws.sh           # Script instalación AWS
-├── deploy_windows.bat      # Script instalación Windows
-└── README.md              # Esta documentación
-```
-
-## 🔧 Configuración Avanzada
-
-### Variables de Entorno
-
-```bash
-# Opcional: Clave OpenAI para insights con IA
-OPENAI_API_KEY=tu-clave-aqui
-
-# Configuración Streamlit
-STREAMLIT_SERVER_PORT=5000
-STREAMLIT_SERVER_ADDRESS=0.0.0.0
 ```
 
 ### Personalización de Datos
@@ -171,40 +97,6 @@ El sistema incluye datos CNC 2023 preconfigurados, pero puedes:
 - Recomendaciones específicas por segmento
 - Identificación de oportunidades de política pública
 
-## 🛠️ Solución de Problemas
-
-### Problemas Comunes
-
-**Error: Puerto 5000 ocupado**
-```bash
-# Cambiar puerto en Docker
-docker run -p 8080:5000 monitor-inclusion-digital
-# Acceder en: http://localhost:8080
-```
-
-**Error: Memoria insuficiente**
-```bash
-# Aumentar memoria Docker Desktop
-# Settings > Resources > Memory > 8GB+
-```
-
-**Error: Insights de IA no funcionan**
-- Verificar que tienes configurada la variable `OPENAI_API_KEY`
-- El sistema funciona sin IA, usando análisis estadístico local
-
-### Logs y Monitoreo
-
-```bash
-# Ver logs en tiempo real
-docker logs -f monitor-inclusion
-
-# Ver estado del contenedor
-docker ps
-
-# Reiniciar aplicación
-docker restart monitor-inclusion
-```
-
 ## 📊 Datos y Metodología
 
 ### Fuente de Datos
@@ -224,18 +116,6 @@ docker restart monitor-inclusion
 - Estrato socioeconómico
 - Ubicación geográfica
 - Nivel educativo
-
-## 🤝 Contribuciones
-
-Este proyecto está diseñado para stakeholders de políticas públicas en Colombia. Para sugerencias o mejoras:
-
-1. Documentar el caso de uso específico
-2. Proporcionar datos de prueba si es necesario  
-3. Explicar el impacto esperado en políticas públicas
-
-## 📄 Licencia
-
-Proyecto desarrollado para la formulación de políticas públicas de inclusión digital en Colombia.
 
 ---
 
