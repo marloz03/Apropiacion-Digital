@@ -191,7 +191,7 @@ def main():
 
             try:
                 # Perform complete FAMD clustering analysis using Marlon's methodology
-                file_path = "attached_assets/MIAD-main/1_BDORIGINAL/datos.xlsx"
+                file_path = "data/datos.xlsx"
                 clustering_results = clustering_engine.run_complete_analysis(
                     file_path)
 
