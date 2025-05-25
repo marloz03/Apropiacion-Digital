@@ -69,7 +69,7 @@ def create_colombia_cluster_map(data: pd.DataFrame) -> folium.Map:
     
     legend_html = f'''
     <div style="position: fixed; 
-                bottom: 60px; right: 20px; width: 160px; height: {legend_height}px; 
+                bottom: 100px; right: 20px; width: 160px; height: {legend_height}px; 
                 background-color: rgba(255, 255, 255, 0.98); 
                 border: 1px solid #ddd; 
                 border-radius: 6px;
