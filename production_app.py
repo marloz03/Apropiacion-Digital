@@ -256,8 +256,8 @@ def main():
             st.metric(
                 label="📱 Penetración Móvil", 
                 value=f"{penetracion_movil:.1f}%",
-                delta=f"Crecimiento: {penetracion_movil - 70:.1f}%",
-                delta_color="normal" if penetracion_movil > 70 else "inverse"
+                delta=f"Meta 25%: {penetracion_movil - 25:.1f}%",
+                delta_color="normal" if penetracion_movil > 25 else "inverse"
             )
 
         with col3:
@@ -265,8 +265,8 @@ def main():
             st.metric(
                 label="💻 Acceso Banda Ancha", 
                 value=f"{banda_ancha:.1f}%",
-                delta=f"Meta 30%: {banda_ancha - 50:.1f}%",
-                delta_color="normal" if banda_ancha >= 50 else "inverse"
+                delta=f"Meta 30%: {banda_ancha - 30:.1f}%",
+                delta_color="normal" if banda_ancha >= 30 else "inverse"
             )
 
         with col4:
@@ -401,7 +401,7 @@ def main():
             """)
 
         summary_metrics = clustered_data.loc[:, [
-            'Cluster', 'EDAD', 'ESTRATO', 'nivel_piramide', 'B8_1_1', 'B8_1_2',
+            'Cluster', 'EDAD', 'ESTRATO', 'nivel_piramide',
             'B4_1_Usa_internet_fijo_y_Wifi',
             'B4_1_Usa_internet_en_celular_o_tableta'
         ]].astype('float').groupby('Cluster').agg({
@@ -411,10 +411,6 @@ def main():
             'mean',
             'nivel_piramide':
             'mean',
-            'B8_1_1':
-            'mean',  # Importancia internet - educación
-            'B8_1_2':
-            'mean',  # Importancia internet - trabajo
             'B4_1_Usa_internet_fijo_y_Wifi':
             'mean',
             'B4_1_Usa_internet_en_celular_o_tableta':
@@ -426,7 +422,7 @@ def main():
 
         # Color code the table
         st.dataframe(summary_metrics.style.background_gradient(
-            subset=['nivel_piramide', 'B8_1_1']),
+            subset=['nivel_piramide']),
                      use_container_width=True)
 
     with tab2:
