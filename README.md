@@ -35,6 +35,8 @@ El Monitor de Inclusión Digital Colombia es una herramienta avanzada de anális
    - Regenera automáticamente clusters y análisis
    - Mantiene histórico de resultados
 
+**Para más información sobre cómo utilizar este producto, por favor descargar el manual de usuario ubicado en la carpeta "Manuales"**
+
 ## 🚀 Instalación con Docker
 
 ### Requisitos Previos
